@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<!-- Link Bootstrap, Font Awesome, CSS, jQuery and JavaScript Start -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/scripts.js"></script>
+<!-- Link Bootstrap, Font Awesome, CSS, jQuery and JavaScript End -->
+    <title>WATER-ACT</title>
+  </head>
+  <body>
+   
+    <h3><img src="/img/large.png" width="25%" alt="logo">
+    <h3 id="landing-tagline"><b>Thousands have lived without love, not one without water.(online order only).</h3>
+    <h3><i>*Delivery only available in Kibera</b></i></h3>
+
+    <button type="btn" class="btn btn-primary"  id="pickup-btn">Pickup</button>
+    <button type="btn" class="btn btn-danger" id="delivery-btn">Delivery</button>
+
+
+  <div class="jumbotron" id="landing-content">  
+    
+        <div class="container">
+        <div id="tankers">
+        <div class="tanker1">
+        <img src="https://biashara.co.ke/wp-content/uploads/2018/11/184301.jpg" width="69%" alt="tankA">
+        <h4>Water-Tanker</h4>
+        </div>
+        
+        <div class="tanker2">
+        <img src="data:image/jpeg;base64,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" width="69%" alt="veggie">
+        <h4>Mini Water-Tanker</h4>
+        </div>
+
+
+        <div class="tanker3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Volvo_water_tank_truck_in_Iraq.JPEG/1200px-Volvo_water_tank_truck_in_Iraq.JPEG" width="73%" alt="tanker">
+        <h4>Maxi Water-Tanker</h4>
+        </div>
+		</div>
+	
+        
+        <div id="cylinders">
+        <div class="cylinder4">
+        <img src="https://5.imimg.com/data5/TR/HD/MY-5731421/500-l-water-tank-500x500.jpg" width="75%" height="65%"  alt="cylinder">
+        <h4>500 litres</h4>
+        </div>
+
+
+        <div class="cylinder5">
+        <img src="https://5.imimg.com/data5/LN/IS/MY-21639914/tank-7-500x500.jpg" width="60%" alt="cylinder">
+        <h4>300 litres</h4>
+        </div>
+        
+
+        <div class="cylinder6">
+        <img src="data:image/jpeg;base64,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" width="76%" height="65%" alt="cylinder">
+        <h4>210 litres</h4>
+        </div>
+        </div>
+
+        <div id="bottles">
+        <div class="bottle8">
+        <img src="https://copia.co.ke/wp-content/uploads/2019/10/Premier-Tank-50l-With-TapGreen_Tanks_5137_1.jpeg" width="89%" height="77%" alt="bottles">
+        <h4>50 litres</h4>
+        </div>
+        
+
+        <div class="bottle9">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQW-kC6E2FzyMptTPEX8WALWOCuw5vm2qx5-w&usqp=CAU" width="69%" alt="bottles">
+        <h4>20 litres</h4>
+        </div>
+
+
+        <div class="bottle10">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR2nH4BR3n-fq9K_0n54Slkk8Fyu-RMEyDVkA&usqp=CAU" width="89%" alt="bottles">
+        <h4>10 litres</h4>
+        </div>
+        </div> 
+		</div> 
+		</div>
+		</div>
+  </div>
+
+  
+
+<!-- Landing End -->
+
+<div class="form-group"  id="address">
+    <h3 class="alert alert-info">Delivery Address</h3>
+    
+    <!-- Address Form Start -->
+    <form id="address-form">
+        <div class="row">
+          <div class="col-xs-6">
+            <label for="first-name">First Name</label><input required type="text" class="form-control address-spacing">
+          </div>
+          <div class="col-xs-6">
+            <label for="last-name">Last Name</label><input required type="text" class="form-control address-spacing">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <label for="street-address">Address</label><input required type="text" class="form-control" id="street-add">
+          </div>
+          <div class="col-xs-3">
+            <label for="house-number">House Number</label><input required type="number" class="form-control" id="house-add">
+          </div>
+          <div class="col-xs-1">
+            <label for="estate-name">Village</label>
+            <select required class="form-control delivery-address" id="estate-select">
+              <option></option>
+              <option>Kianda</option>
+              <option>Soweto East</option>
+              <option>Kisumu Ndogo</option>
+              <option>Laini Saba</option>
+              <option>Mashimoni</option>
+              <option>Salama</option>
+            </select>
+          </div>
+         </div>
+        
+         <button type="submit" class="btn btn-primary" id="order-proceed-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Order Content Start -->
+  <div class="jumbotron" id="order-content">
+    <h1 class="page-header"></h1>
+    <div class="row">
+      <div class="col-xs-6">
+        
+
+        <!-- Custom Order Form Start -->
+
+        <form class="form-group" id="custom-order">
+          <div id="form-content">
+            <h3 id="form-header"><a target="_top" href="https://flamingtext.com/" ><img src="https://blog.flamingtext.com/blog/2020/10/17/flamingtext_com_1602944820_825463370.png" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com"></a></h3>
+            <div class="row container">
+              <div class="col-xs-6">Litres (Lita))</div>
+              <div class="col-xs-6" class="form-option">
+                <select required class="form-control" id="litres">
+                  <option></option>
+                  <option value="biggest ">10,000lts</option>
+                  <option value="bigger ">5,000lts <option>
+                  <option value="big ">3,000lts </option>
+                  <option value="medium ">2,000lts </option>
+                  <option value="small ">1,000lts </option>
+                  <option value="e ">500lts </option>
+                  <option value="ex ">300lts </option>
+                  <option value="ext ">210lts </option>
+                  <option value="extr ">100lts </option> 
+                  <option value="extra ">50lts </option>
+                  <option value="l ">20lts </option>
+                  <option value="li ">10lts </option>
+                  <option value="lig ">5lts </option>
+                  <option value="ligh ">2lts </option>
+                  <option value="light ">1lts </option>
+
+                
+                </select>
+              </div>
+            </div>
+            
+              
+              <div class="row container">
+                <p>Water Type(Aina)</p>
+              <div class="col-xs-6" class="form-option">
+                <select required class="form-control" id="type">
+                  <option></option>
+                  <option value="purified">Purified(Ya Kunywa)</option>
+                  <option value="regular">Regular(Ya Matumizi)</option>
+                </select>
+              </div>
+            </div>
+            <div class="row container">
+              <div class="col-xs-6"><p>Packaging</p></div>
+              <div class="col-xs-6" class="form-option">
+                <select required class="form-control" id="packaging">
+                  <option></option>
+                  <option value="Small Tanker in.">Tankers(Lori)"</option>
+                  <option value="Medium Tanker in.">Pet Bottles(Chupa)"</option>
+                  <option value="Large Tanker in.">Cylinders(Mitungi)"</option>
+               </select>
+              </div>
+            </div>
+            
+          <button type="submit" class="btn btn-danger" id="submit-custom-order">Place Order</button>
+        </form>
+<!-- Custom Pizza Form End -->
+      </div>
+
+      <div class="col-xs-2">
+        <h2>Location</h2>
+        <button type="btn" class="btn btn-info side-option" id="kianda">Kianda</button>
+        <button type="btn" class="btn btn-info side-option" id="mashimoni">Mashimoni</button>
+        <button type="btn" class="btn btn-info side-option" id="kisumu">Kisumu Ndogo</button>
+        <button type="btn" class="btn btn-info side-option" id="soweto">Soweto East</button>
+        <button type="btn" class="btn btn-info side-option" id="salama">Salama</button>
+        <button type="btn" class="btn btn-info side-option" id="laini">Laini Saba</button>
+      </div>
+
+<!-- Cart Start -->
+<div class="col-xs-4" id="price-content">
+    <h1 class="page-header"></h1>
+    <h2>Price: KES <span id="final-cost"></span></h2>
+    <div id="order-details">
+      <p><a id="order-details-dropdown">Custom Order</a></p>
+      <ul id="order-details"></ul>
+      <p><a id="default-order-dropdown">Order</a></p>
+      <ul id="default-order-details"></ul>
+      <p><a id="sides-dropdown">Location</a></p>
+      <ul id="sides-details"></ul>
+    </div>
+
+    <button type="btn" class="btn btn-success" id="checkout-btn">Checkout</button>
+   
+  </div>
+    <h3><span id="delivery-option"></span></h3>
+  </div>
+<!-- Cart End -->
+  </div>
+</div>
+<!-- Order Content End -->
+
+     
+
+  
+
+  
+<!-- Footer Start -->
+<div class="nav">
+  <nav class="navbar navbar-inverse navbar-fixed-bottom" id="footer">
+    <div class="navbar-text pull-right"> 			
+        <b>www.skylar-ke.pizzeria &nbsp;|&nbsp; &copy; 2020</b></div>
+  </nav>
+</div>
+<!-- Footer End -->
+
+</body>
+</html>
