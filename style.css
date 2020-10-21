@@ -1,4 +1,6 @@
-body {font-family: Arial, Helvetica, sans-serif;}
+body {
+  font-family: 'Roboto Slab', serif ;
+}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -6,16 +8,17 @@ input[type=text], input[type=password] {
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(138, 136, 136);
   box-sizing: border-box;
 }
 
 /* Set a style for all buttons */
 button {
-  background-color: #181bca;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  
+  background-color:skyblue;
+  color:white;
+  padding: 15px 20px;
+  margin: 18px , 10px;
   border: none;
   cursor: pointer;
   width: 100%;
@@ -45,6 +48,7 @@ img.avatar {
 }
 
 .container {
+  color: blue;
   padding: 10px;
 }
 
@@ -64,13 +68,13 @@ span.psw {
   height: 50%; /*half  Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color:blue; /* Black w/ opacity */
   padding-top: 100px;
 }
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: blue;
   margin: 5% auto 10% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
   width: 50%; /* Could be more or less, depending on screen size */
