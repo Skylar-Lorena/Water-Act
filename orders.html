@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<!-- Link Bootstrap, Font Awesome, CSS, jQuery and JavaScript Start -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/scripts.js"></script>
+<!-- Link Bootstrap, Font Awesome, CSS, jQuery and JavaScript End -->
+    <title>WATER-ACT</title>
+  </head>
+  <body>
+   
+    <h3 class="logo"><img src="/img/large.png" width="25%" alt="logo"></h3>
+
+    
+    <main role="main">
+  
+
+
+
+      <div class="col-md-4">
+          <div id="delivery">
+                  <h2 class="title">Delivery</h2>
+                  <p>We do perform unforgetable deliveries and hold up our loyalty rapport dearly with our clients.
+                      Happy clients, Inspire happy workers!!
+                  </p>
+          </div>
+      </div>
+      
+      
+      </div>
+      
+      </div>
+      
+      <div class="container-fluid order" id="make-order">
+        <div class="order-overlay">
+          <div class="controls-top text-center" id="Order-now"> 
+            <h2>Place your order</h2>
+          </div>    
+          <div class="row">
+              <div class="col-sm-5">
+                <form action="">
+                    <label for="select">Select Preffered litres</label>
+                    <select class="browser-default custom-select custom-select-md mb-3 name" id="name">                
+                      <option></option>
+                      <option value="Tankers">Tankers(Lori) </option>
+                    <option value="Cylinders">Cylinders(Mitungi) </option>
+                    <option value="Pet Bottles">Pet Bottles(Chupa) </option>
+                    </select>
+                  <label for="select">Select Size</label>
+                  <select class="browser-default custom-select custom-select-md mb-3" id="size">
+                    <option selected value="0">Select size here</option>
+                    <option value="10,000lts ">10,000lts</option>
+                        <option value="5,000lts ">5,000lts <option>
+                        <option value="3,000lts ">3,000lts </option>
+                        <option value="2,000lts ">2,000lts </option>
+                        <option value="1,000lts ">1,000lts </option>
+                        <option value="500lts ">500lts </option>
+                        <option value="300lts ">300lts </option>
+                        <option value="200lts ">210lts </option>
+                        <option value="100lts ">100lts </option> 
+                        <option value="50lts ">50lts </option>
+                        <option value="20lts ">20lts </option>
+                        <option value="10lts ">10lts </option>
+                        <option value="5lts ">5lts </option>
+                        <option value="2lts ">2lts </option>
+                        <option value="1lts ">1lts </option>
+                  </select>
+                  <label for="type">Choose your favorite type!</label>
+                    <select class="browser-default custom-select custom-select-md mb-3" id="type">
+                        <option selected value="0">Select your preferred type!</option>
+                        <option value="purified">Purified(Ya Kunywa)</option>
+                        <option value="regular">Regular(Ya Matumizi)</option>
+                        <option value="sparkling">Sparkling(Ya Kujiburudisha)</option>
+                    </select>
+                  <label for="Location">Select Your Location at KES. 50 each</label><br>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" class="custom-control-input" id="Kianda" value="Kianda" name="location">
+                      <label class="custom-control-label" for="Kianda">Kianda</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" class="custom-control-input" id="Mashimoni" value="Mashimoni" name="location">
+                      <label class="custom-control-label" for="Mashimoni">Mashimoni</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" class="custom-control-input" id="Kisumu" value="Kisumu" name="location">
+                      <label class="custom-control-label" for="Kisumu">Kisumu Ndogo</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" class="custom-control-input" id="Soweto" value="Soweto" name="location">
+                      <label class="custom-control-label" for="Soweto">Soweto East</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" class="custom-control-input" id="Salama" value="Salama" name="location">
+                      <label class="custom-control-label" for="Salama">Salama</label>
+                    </div>
+                    <div class="custom-control custom-checkbox custom-control-inline">
+                      <input type="checkbox" class="custom-control-input" id="Laini" value="Laini" name="location">
+                      <label class="custom-control-label" for="Laini">Laini Saba</label>
+                    </div>
+                    <br><br>
+                  <button type="submit" class="btn btn-danger proceed">Proceed</button>
+                  
+                </form>
+              </div>
+              <div class="col-sm-7">
+                <div id="info">
+                  <p>Your order will be processed and delivered within one hour of placing.</p>          
+                  <p id="regards">Regards, Management</p>
+                </div>
+                <div class="choice">
+                  <h2>Your Order is:</h2>
+                  <div id="your-orders">
+                    <table class="table table-sm  watertable">
+                      <thead>
+                        <tr>
+                          <th scope="col">Name</th>
+                          <th scope="col">Size</th>
+                          <th scope="col">Type</th>
+                          <th scope="col">Location</th>
+                          <th scope="col">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody id="ordersmade">
+                        <tr>
+                          <td id="watername"></td>
+                          <td id="watersize"></td>
+                          <td id="watertype"></td>
+                          <td id="waterlocation"></td>
+                          <td id="watertotal"></td>
+                        </tr>                  
+                      </tbody>
+                    </table>
+                    <p id="watertotal"></p>
+                    <p id="totalbill"></p> 
+                    <p id="addedprice">Delivery will cost sh. 150</p>
+                    <p id="finallmessage"></p>
+                  </div>
+                  <button class="btn btn-danger addWater">Add Water</button>
+                  <button class="btn btn-danger" id="checkout">Checkout</button>
+                  <button class="btn btn-danger deliver">Home delivery?</button>
+                </div>
+                <div class="pick-up">
+                    <form action="">
+                      <div class="form-group">
+                        <input type="text" id="name" class="form-control mb-3" placeholder="Name">
+                        <input type="number" id="phone" class="form-control mb-3" placeholder="Phone Number">
+                        <input type="text" id="location" class="form-control mb-3" placeholder="Location for pick-up">
+                        <button class="btn btn-danger" id="final-order">Place Order</button>
+                      </div>
+                    </form>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      
+      <!-- contact -->
+      
+      <footer>
+                <div class="container-fluid top-padding bg-dark" id="Contact">            
+                <div class="container">
+                      <div class="row align-self-center">
+                          <div class="col-lg-4 col-md-6">
+                              <div class="footer-widget">
+                
+                                
+                                  <a href="" class="footer-brand text-primary">
+                              <b>www.wateract-ke.com &nbsp;|&nbsp; &copy; 2020</b>
+                              </div>
+                          </div>
+                
+                          
+                          <div class="col-lg-3 col-md-4">
+                
+                            
+                              <ul class="footer-link justify-content-end">
+                                  <li>
+                                      <div class="mobile"></div> Mobile:+254720000100
+                                  </li>
+                
+                                  <li>
+                                      <div class="location"></div>Location: Nairobi , Kenya
+                                  </li>
+                                  <li>
+                                      <div class="email"></div>Email: wateract-ke@gmail.com</li>
+                              </ul>
+                          </div>
+                      </div>
+                      
+                
+                      <div class="row justify-content-md-center footer-copy">
+                          <div class="col-lg-8 col-md-6 col-sm-6 text-center">
+                              <p class="lead text-white-50">&copy; Copyright 2020 | www.wateract-ke.com </p>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+      
+      </footer>   
+      
+      
+      
+      <!-- js stylesheet -->
+      <script src="./js/jquery-3.5.1.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> 
+      <script src="./js/order.js"></script>
+      
+      
+      
+      </main>  
+      </body>
+      </html>
+
+</body>
+</html>
