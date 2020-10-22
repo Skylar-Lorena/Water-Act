@@ -1,191 +1,283 @@
-$(document).ready(function(){
-    $("#pickup-btn").click(function(){
-      $("#pickup-btn").slideUp('1000').hide('1500');
-      $("#pickup-btn").show('1000');
-    });
-    $("#delivery-btn").click(function(){
-      $("#delivery-btn").slideUp('1500');
-      $("#delivery-btn").slideDown('1000');
-     
-    });
-  });
-  
-
-// Business Logic
-var totalPriceArray = []; //Only global variable in code
-function Order (litres, type) {
-  this.customSize = 0;
+var price , type_price, size_price ;
+let total = 0;
+function Getwater( name,size,type,location, total ){
+  this.name = name;
+  this.size = size;
   this.type = type;
-  this.packaging = packaging;
-  this.orderPrice = 0;
-  this.sidePrice = 150;
+  this.location = location;
+  this.total = total;
 }
-Order.prototype.orderCost = function () {
-  if (this.litres === "litres") {
-    this.orderPrice += 0;
-  } else if (this.litres === "light ") {
-    this.orderPrice += 50;
-  } else if (this.litres === "ligh ") {
-    this.orderPrice += 100;
-  } else if (this.litres === "lig ") {
-    this.orderPrice += 150;
-  } else if (this.litres === "li ") {
-    this.orderPrice += 200;
-  } else if (this.litres === "l ") {
-    this.orderPrice += 250;
-  } else if (this.litres === "extra ") {
-    this.orderPrice += 300;
-  } else if (this.litres === "extr ") {
-    this.orderPrice += 350;
-  } else if (this.litres === "ext ") {
-    this.orderPrice += 400;
-  } else if (this.litres === "ex ") {
-    this.orderPrice += 450;
-  } else if (this.litres === "e ") {
-    this.orderPrice += 500;
-  } else if (this.litres === "small ") {
-    this.orderPrice += 550;
-  } else if (this.litres === "medium ") {
-    this.orderPrice += 650;
-  } else if (this.litres === "big ") {
-    this.orderPrice += 750;
-  } else if (this.litres === "bigger ") {
-    this.orderPrice += 850;
-  } else if (this.litres === "biggest ") {
-    this.orderPrice += 1000;
-  }
-  if (this.customSize === "Tankers in.") {
-    this.orderPrice += 0;
-  } else if (this.customSize === "Pet  Bottles  in.") {
-    this.order += 0;
-  } else if (this.customSize === "Cylinders in.") {
-    this.order += 0;
-  }
-  
-  if (this.type === "purified") {
-    this.orderPrice += 0;
-  } else if (this.type === "regular ") {
-    this.orderPrice += 0;
-  }
-  
-  this.orderPrice += this.size;
-  this.orderPrice += this.type;
-  this.orderPrice += this.litres;
-  return this.orderPrice;
-}
-Order.prototype.sideCost = function () {
-  return this.sidePrice;
-}
-Order.prototype.finalCost = function () {
-  var cartTotalPrice = 0;
-  for (var arrayElement = 0; arrayElement < totalPriceArray.length; arrayElement ++) {
-    cartTotalPrice += totalPriceArray[arrayElement]; //////////////////////IMPORTANT!!! How to add contents of an array together
-  }
-  return cartTotalPrice;
-}
-function Address (streetAddress, houseNumber, estate) {
-  this.streetAddress = streetAddress;
-  this.estate = estate;
-  this.houseNumber = houseNumber;
-  
-  this.deliveryAddress = (streetAddress +  "  " +  estate +  " " + houseNumber);
-}
+$(document).ready(function(){
+  $("button.proceed").click(function(event){
+   let pname = $("#name option:selected").val();
+   let psize = $("#size option:selected").val();
+   let ptype = $("#type option:selected").val();
+   let plocation = [];
+   $.each($("input[name='location']:checked"), function(){            
+       plocation.push($(this).val());
+   });
+   console.log(plocation.join(", "));
 
-//User Interface Logic
-$(document).ready(function(event) {
-    /////Landing Page Btns
-      $("#pickup-btn").click(function() {
-        $("#order-content").show();
-        $("#landing-content").hide();
-        $("#delivery-option").text("PICKUP BY CUSTOMER");
-      });
-      $("#delivery-btn").click(function() {
-        $("#address").show();
-        $("#pickup-btn,#delivery-btn,#landing-tagline").hide();
-      });
-      $("form#address-form").submit(function(event) {
-        event.preventDefault();
-        var streetAddress = $("input#street-add").val();
-        var houseNumber = $("input#house-add").val();
-        var estate = $("select#estate-select").val();
-        var newAddress = new Address(streetAddress, estate, houseNumber)
-        $("#order-content").show();
-        $("#landing-content").hide();
-        $("#delivery-option").text("DELIVER TO: " + newAddress.deliveryAddress);
-      });
-      $("form#custom-order").submit(function(event) {
-        event.preventDefault();
-        var customSize = $("select#size").val();
-        var type = $("select#type").val();
-        var pet = $("select#litre").val();
-        var orderDetails = (customSize + " - " + type + ", " + litres );
-        var newOrder= new Order(customSize, litres);
-        newCustomOrder.orderCost();
-        totalPriceArray.push(newCustomOrder.orderPrice);
-        $("#order-details-dropdown").show();
-        $("#final-cost").text(newCustomOrder.finalCost());
-        $("#order-details").append("<ul><li>" + orderDetails + "</li></ul>");
-        $("#size, #type, #litres").val("");
-      });
-      $("#order-details-dropdown").click(function() {
-        $("#order-details").toggle();
-      });
+   switch(psize){
+    case "0":
+      price =0;
+    break;
+    case "10,000lts":
+       price = 6000;
+       console.log(price);
+     break;
+     case "3,000lts":
+       price = 3000;
+       console.log("The price is "+price);
+     break;
+     case "2,000lts":
+       price = 2000;
+       console.log("The price is "+price);
+    case "1,00lts":
+       price = 1500;
+       console.log("The price is "+price);
+     break;
+     case "500lts":
+       price = 1000;
+       console.log("The price is "+price);
+     break;
+     case "300lts":
+       price = 500;
+       console.log("The price is "+price);
+      break;
+      case "210lts":
+         price = 300;
+         console.log("The price is "+price);
+      break;
+      case "100lts":
+         price = 250;
+         console.log("The price is "+price);
+      break;
+      case "50lts":
+           price = 150;
+           console.log("The price is "+price);
+      break;
+      case "20lts":
+           price = 100;
+           console.log("The price is "+price);
+            break;
+     case "10lts":
+       price = 50;
+       console.log("The price is "+price);
+     break;
+     case "5lts":
+       price = 40;
+       console.log("The price is "+price);
+      break;
+      case "2lts":
+         price = 30;
+         console.log("The price is "+price);
+      break;
+      case "1lts":
+         price = 10;
+         console.log("The price is "+price);
+     
+     default:
+       console.log("error"); 
+   }
+   switch(ptype){
+      case "0":
+        type_price = 0;
+      break;
+      case "purified":
+        type_price = 200;
+      break;
+      case "regular":
+        type_price = 150;
+      break;
+      case "sparkling":
+        type_price = 250;
+      break;
+      default:
+        console.log("error"); 
+    }
+    let location_value = plocation.length*50;
+    console.log("location value" + location_value);
 
-    /////Side Orders
-      var newSideOrder = new Order();
-      $("#kianda").click(function() {
-        newSideOrder.sideCost();
-        totalPriceArray.push(newSideOrder.sidePrice);
-        $("#final-cost").text(newSideOrder.finalCost());
-        $("#sides-dropdown").show();
-        $("#sides-details").append("<ul><li>" + "Kianda  " + "</li></ul>");
-      });
-      $("#mashimoni").click(function() {
-        newSideOrder.sideCost();
-        totalPriceArray.push(newSideOrder.sidePrice);
-        $("#final-cost").text(newSideOrder.finalCost());
-        $("#sides-dropdown").show();
-        $("#sides-details").append("<ul><li>" + "Mashimoni" + "</li></ul>");
-      });
-      $("#kisumu").click(function() {
-        newSideOrder.sideCost();
-        totalPriceArray.push(newSideOrder.sidePrice);
-        $("#final-cost").text(newSideOrder.finalCost());
-        $("#sides-dropdown").show();
-        $("#sides-details").append("<ul><li>" + "Kisumu" + "</li></ul>");
-      });
-      $("#soweto").click(function() {
-        newSideOrder.sideCost();
-        totalPriceArray.push(newSideOrder.sidePrice);
-        $("#final-cost").text(newSideOrder.finalCost());
-        $("#sides-dropdown").show();
-        $("#sides-details").append("<ul><li>" + "Soweto East" + "</li></ul>");
-      });
-      $("#laini").click(function() {
-        newSideOrder.sideCost();
-        totalPriceArray.push(newSideOrder.sidePrice);
-        $("#final-cost").text(newSideOrder.finalCost());
-        $("#sides-dropdown").show();
-        $("#sides-details").append("<ul><li>" + "Laini Saba" + "</li></ul>");
-      });
-      $("#sides-dropdown").click(function() {
-        $("#sides-details").toggle();
-      });
+    if((psize == "0") && (ptype == "0")){
+      console.log("nothing selected");
+      $("button.proceed").show();
+      $("#info").show();
+      $("div.choice").hide();
+      alert("Please select Water size and type"); 
+    }
+    else{
+      $("button.proceed").hide();
+      $("#info").hide();
+      $("div.choice").slideDown(1000);
+    }
 
+    total = price + type_price + location_value;
+    console.log(total);
+    let checkoutTotal =0;
+    checkoutTotal = checkoutTotal + total;
+
+    $("#watername").html($("#name option:selected").val());
+    $("#watersize").html( $("#size option:selected").val());
+    $("#watertype").html($("#type option:selected").val());
+    $("#waterlocation").html(plocation.join(", "));
+    $("#watertotal").html(total);
     
 
-      ///Checkout Btn
-    
-      $("#checkout-btn").click(function() {
-        location.reload();
-        var pizza = document.getElementById("order-details").innerHTML.value;
-        alert('Dear customer, ' + ' We have received your order successfully!');
-        Bryson.preventDefault();
-
+    $("button.addWater").click(function(){
+      let pname = $("#name option:selected").val();
+      let psize = $("#size option:selected").val();
+      let ptype = $("#type option:selected").val();
+      let plocation = [];
+      $.each($("input[name='location']:checked"), function(){            
+          plocation.push($(this).val());
       });
-      
+      console.log(plocation.join(", "));
+      switch(psize){
+          case "0":
+            price =0;
+          break;
+          case "10,000lts":
+             price = 6000;
+             console.log(price);
+           break;
+           case "5,000lts":
+             price = 3000;
+             console.log("The price is "+price);
+           break;
+           case "3,000lts":
+             price = 2000;
+             console.log("The price is "+price);
+          case "2,000lts":
+             price = 1500;
+             console.log("The price is "+price);
+           break;
+           case "1,000lts":
+             price = 1000;
+             console.log("The price is "+price);
+           break;
+           case "500lts":
+             price = 500;
+             console.log("The price is "+price);
+            break;
+            case "300lts":
+               price = 300;
+               console.log("The price is "+price);
+            break;
+            case "210lts":
+               price = 250;
+               console.log("The price is "+price);
+            break;
+            case "100lts":
+                 price = 150;
+                 console.log("The price is "+price);
+            break;
+            case "50lts":
+                 price = 100;
+                 console.log("The price is "+price);
+                  break;
+           case "20lts":
+             price = 50;
+             console.log("The price is "+price);
+           break;
+           case "10lts":
+             price = 40;
+             console.log("The price is "+price);
+            break;
+            case "5lts":
+               price = 30;
+               console.log("The price is "+price);
+            break;
+            case "2lts":
+               price = 20;
+               console.log("The price is "+price);
+            break;
+            case "1lts":
+                 price = 10;
+                 console.log("The price is "+price);
+            
+           default:
+             console.log("error"); 
+         }
+         switch(ptype){
+          case "0":
+            type_price = 0;
+            console.log("The price is "+price);
+          break;
+          case "purified":
+            type_price = 200;
+            console.log("The price is "+price);
+          break;
+          case "regular":
+            type_price = 100;
+            console.log("The price is "+price);
+          break;
+          case "sparkling":
+            type_price = 250;
+            console.log("The price is "+price);
+          
+          default:
+            console.log("error"); 
+        }
+        let location_value = plocation.length*50;
+        console.log("location value" + location_value);
+        total = price + type_price + location_value;
+        console.log(total);
+
+        checkoutTotal = checkoutTotal + total;
+        console.log(checkoutTotal);
+      var newOrder = new Getwater(pname, psize, ptype, plocation, total);
+
+      $("#ordersmade").append('<tr><td id="watername">'+ newOrder.name +'</td><td id="watersize">' + newOrder.size + '</td><td id="watertype">'+newOrder.type + '</td><td id="pizzatopping">'+newOrder.location+'</td><td id="totals">'+newOrder.total+'</td></tr>');
+      console.log(newOrder);
+    });
+    
+    $("button#checkout").click(function(){ 
+      $("button#checkout").hide();
+      $("button.addWater").hide();
+      $("button.deliver").slideDown(1000);
+      $("#addedprice").slideDown(1000);
+      console.log("Your total bills is sh. "+ checkoutTotal);
+      $("#watertotal").append("Your bill is sh. "+ checkoutTotal);
     });
 
-      
     
-    
+    $("button.deliver").click(function(){
+      $(".watertable").hide();
+      $(".choice h2").hide();
+      $(".pick-up").slideDown(1000);
+      $("#addedprice").hide();
+      $("button.deliver").hide();
+      $("#watertotal").hide();
+      let deliveryamount= checkoutTotal+150;
+      console.log("You will pay sh. " + deliveryamount+" on pick-up");
+      $("#totalbill").append("Your bill plus pick-up fee is: " + deliveryamount);
+    });
+
+    $("button#final-order").click(function(event){
+      event.preventDefault();
+
+      $("#watertotal").hide();
+      $(".pick-up").hide();
+      $("button#final-order").hide();
+      let deliveryamount= checkoutTotal+ 150;
+      console.log("Final Bill is: "+ deliveryamount);
+      let person = $("input#name").val();
+      let phone = $("input#phone").val();
+      let location = $("input#location").val();
+
+      if ($("input#name").val() && $("input#phone").val() && $("input#location").val()!=""){
+  
+        $("#finallmessage").append( person +  ",Hello! We have recieved your order and it will be delivered to you at "+ location + ". Prepare sh. " + deliveryamount);
+        $("#totalbill").hide();
+        $("#finallmessage").slideDown(1200);
+      }
+      else {
+        alert("Please fill in the details for pick-up!");
+        $(".pick-up").show();
+        $("button#final-order").show();
+      }
+    });
+   event.preventDefault();
+  });
+});
