@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.nav ul {
+    list-style: none;
+    background: #000000;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.nav li {
+    display: inline-block;
+}
+.nav a {
+    text-decoration: none;
+    color: white;
+    width: 100px;
+    display: block;
+    padding: 20px;
+    font-size: 17px;
+    font-family: Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+li {
+    display: inline;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+h1 {
+    text-align: 20px right;
+    border-inline-color: black;
+    font-size: bold;
+    padding: 50px;
+    text-align: center;
+}
+.carousel-caption h1{
+    color:white;
+    font-size: 60px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-style: italic;
+}
+.courousel h2{
+    text-align:center;
+    font-size:40px;
+}
+#logo{
+    align-content: right;
+}
